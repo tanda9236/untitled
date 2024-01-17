@@ -1,6 +1,36 @@
+server:
+  port: 8000
+  servlet:
+    context-path: /untitled
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    
 spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+      
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Seoul
+    url: jdbc:mysql://localhost:3306/untitled?serverTimezone=Asia/Seoul
     username: tanda
     password: asdf0120
+    
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      #use-new-id-generator-mappings: false #버전상승으로 불필요
+    show-sql: true
+    properties:
+      '[hibernate.format_sql]': true #'[]'안해줘서 오류
+    
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
