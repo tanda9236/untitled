@@ -1,7 +1,6 @@
 package com.lsk.untitled.test;
 
 import lombok.Data;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 

@@ -16,14 +16,14 @@ let index = {
 		// ajax통신 -> 3개의 데이터 json으로 변경 insert요청 -> 통신성공 -> 서버가 json을 리턴 -> 자동 자바오브젝트 변환
 		$.ajax({
 			type: "POST",
-			url: "/untitled/api/user",
+			url: "/auth/joinProc",
 			data: JSON.stringify(data), // http body data
 			contentType: "application/json; charset=utf-8",
 			dataType: "json" // 자동으로 자바오브젝트로 변환됨 (생략가능)
 		}).done(function(resp){
 			alert('회원가입이 완료되었습니다.');
 //			console.log(resp);
-			location.href = "/untitled";
+			location.href = "/";
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		});

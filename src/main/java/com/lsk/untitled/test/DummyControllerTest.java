@@ -5,8 +5,6 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -23,7 +21,7 @@ import com.lsk.untitled.model.RoleType;
 import com.lsk.untitled.model.User;
 import com.lsk.untitled.repository.UserRepository;
 
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
 
 @RestController
 public class DummyControllerTest {
@@ -80,7 +78,7 @@ public class DummyControllerTest {
 	public Page<User> pageList(@PageableDefault(size=2, sort="id", direction = Sort.Direction.DESC) Pageable pageable){
 		Page<User> pagingUser = userRepository.findAll(pageable);
 
-		List<User> users = pagingUser.getContent();
+//		List<User> users = pagingUser.getContent();
 		return pagingUser;
 	}
 	

@@ -3,7 +3,6 @@
 <%@ include file="../layout/header.jsp"%>
 
 <div class="container">
-<%-- 	<form action="/user/join" method="POST> 옛날방식 안씀--%>
 	<form>
 		<div class="form-group">
 			<label for="username">Username</label>
@@ -24,5 +23,5 @@
 	
 </div>
 
-<script src="/untitled/js/user.js"></script>
+<script src="/js/user.js"></script>
 <%@ include file="../layout/footer.jsp"%>
