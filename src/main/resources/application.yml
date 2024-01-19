@@ -34,3 +34,6 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+      
+tanda:
+  key: secretAuthPwd
