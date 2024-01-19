@@ -2,6 +2,8 @@ package com.lsk.untitled.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -12,6 +14,13 @@ public class SecurityConfig {
 
 //	@Autowired
 //	private PrincipalDetailService principalDetailService;
+	
+	@Bean
+    AuthenticationManager authenticationManager(
+            AuthenticationConfiguration authenticationConfiguration
+    ) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
+    } // 세션관련 AuthenticationManager를 사용하기위해 만듬, 오버라이드가 안됨.. 
 	
     @Bean // IoC가 돼요!! (비밀번호 암호화)
     BCryptPasswordEncoder encodePWD(){
