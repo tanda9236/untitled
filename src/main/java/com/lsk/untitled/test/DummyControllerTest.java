@@ -78,7 +78,7 @@ public class DummyControllerTest {
 	public Page<User> pageList(@PageableDefault(size=2, sort="id", direction = Sort.Direction.DESC) Pageable pageable){
 		Page<User> pagingUser = userRepository.findAll(pageable);
 
-//		List<User> users = pagingUser.getContent();
+		List<User> users = pagingUser.getContent();
 		return pagingUser;
 	}
 	

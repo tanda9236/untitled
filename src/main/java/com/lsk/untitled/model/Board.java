@@ -3,7 +3,6 @@ package com.lsk.untitled.model;
 import java.sql.Timestamp;
 import java.util.List;
 
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.Column;
@@ -39,7 +38,6 @@ public class Board {
 	@Column(columnDefinition = "LONGTEXT")
 	private String content;
 	
-	@ColumnDefault("0")
 	private int count; //조회수
 	
 	// Many = Board, User = One

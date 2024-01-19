@@ -1,13 +1,10 @@
 package com.lsk.untitled.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-
-import com.lsk.untitled.config.auth.PrincipalDetailService;
 
 //빈 등록 : 스프링 컨테이너에서 객체를 관리할 수 있게 하는 것 
 @Configuration // 빈등록(IoC관리)
@@ -52,7 +49,7 @@ public class SecurityConfig {
     			}));
         // 3. 인증, 권한 필터 설정
         http.authorizeRequests(
-                authorize -> authorize.antMatchers("/users/**").authenticated()
+                authorize -> authorize.antMatchers("/users/**","/board/**").authenticated()
                         .antMatchers("/manager/**")
                         .access("hasRole('ADMIN') or hasRole('MANAGER')")
                         .antMatchers("/admin/**").hasRole("ADMIN")
